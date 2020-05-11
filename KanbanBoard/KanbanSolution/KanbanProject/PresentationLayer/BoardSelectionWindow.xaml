@@ -1,0 +1,23 @@
+﻿<Window x:Class="KanbanProject.PresentationLayer.BoardSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KanbanProject.PresentationLayer"
+        mc:Ignorable="d"
+        Title="BoardSelectionWindow" Height="250" Width="461">
+    <Grid Margin="0,0,12,5">
+        <Button  x:Name="AddBoard" Content="Add Board" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="23" Margin="121,172,0,0" Click="AddBoard_Click" />
+        <Button x:Name="RemoveBoard" Content="Remove Board" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="23" Margin="215,172,0,0" Click="RemoveBoard_Click"/>
+        <Button x:Name="ChooseBoard" Content="Choose Board" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="23" Margin="328,172,0,0" Click="ChooseBoard_Click"/>
+        <ListView ItemsSource="{Binding BoardNames, Mode=OneWay}" SelectedItem="{Binding SelectedBoard}" HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="310" Margin="70,10,0,0" MouseDoubleClick="List_DoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name ="AddtextBox" Text="{Binding NameText}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Margin="17,172,0,0" RenderTransformOrigin="0.5,2.478"/>
+    </Grid>
+
+</Window>

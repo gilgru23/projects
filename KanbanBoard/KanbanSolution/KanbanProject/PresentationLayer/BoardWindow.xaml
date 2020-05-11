@@ -1,0 +1,32 @@
+﻿<Window x:Class  ="KanbanProject.PresentationLayer.BoardWindow"
+   xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+   xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml" 
+   xmlns:d = "http://schemas.microsoft.com/expression/blend/2008" 
+   xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006" 
+   mc:Ignorable = "d" Title = "Kanban Board" Height = "389" Width = "750">
+    <Grid HorizontalAlignment="Left" Width="594" Margin="0,0,0,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="164.847" />
+            <RowDefinition Height="136.153"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="125.847" />
+            <ColumnDefinition Width="75.153"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding GridView, Mode=OneWay}" SelectedItem="{Binding Selected}" HorizontalAlignment="Left" Height="221" Margin="63,10,-490,0" Grid.Row="1" VerticalAlignment="Top" Width="630" Grid.ColumnSpan="2"  SelectionMode="Single" IsReadOnly="True" Background="#FFF0F0F0" ClipToBounds="True" Grid.RowSpan="2" />
+        
+        <TextBox x:Name="textBoxFilter" HorizontalAlignment="Left" Height="23" Margin="63,20,0,0" TextWrapping="Wrap" Text="{Binding SearchTerm, Mode=OneWayToSource}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button x:Name="buttonUpdate" Content="Edit Task" Grid.Column="1" HorizontalAlignment="Left" Margin="298,93,-297,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
+        <Button Content="Log Out" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="494,20,-478,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
+        <Button x:Name="createButton" Content="Create Task" Grid.Column="1" HorizontalAlignment="Left" Margin="394,93,-393,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="createButton_Click"/>
+        <Button x:Name="moveTask" Content="Move Task" Grid.Column="1" HorizontalAlignment="Left" Margin="491,93,-490,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="MoveTask_Click"/>
+        <Button x:Name="upCol" Content="Up" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Click="UpCol_Click" />
+        <Button x:Name="downCol" Content="Down" HorizontalAlignment="Left" Margin="10,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Click="DownCol_Click" />
+        <Button x:Name="addCol" Content="Add" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Click="AddCol_Click"  />
+        <Button x:Name="removeCol" Content="Delete" HorizontalAlignment="Left" Margin="10,96,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Click="RemoveCol_Click"  />
+        <Button x:Name="renameCol" Content="Rename" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Click="RenameCol_Click"  />
+        <Button x:Name="limitCol" Content="Limit" HorizontalAlignment="Left" Margin="10,152,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Click="LimitCol_Click" Grid.RowSpan="2"  />
+        <ComboBox Grid.Column="1" ItemsSource="{Binding BoardNames, Mode=OneWay}" SelectedItem="{Binding SelectedBoard}" HorizontalAlignment="Left" Height="21" Margin="120,20,-280,0" VerticalAlignment="Top" Width="236" SelectionChanged="ComboBox_SelectionChanged"/>
+    </Grid>
+</Window> 
